@@ -13,6 +13,7 @@ import 'package:macro_calculator/widgets/slider.dart';
 import 'package:macro_calculator/widgets/tile.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:provider/provider.dart';
+import 'package:macro_calculator/l10n/minimal_l10n.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -53,7 +54,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Unit",
+                  MinimalLocalizations.of(context).unit,
                   style: MyTextStyles(context).cardTitle,
                 ),
                 MyDropDownMenu<DistanceUnit>(
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  "Race Type",
+                  MinimalLocalizations.of(context).raceType,
                   style: MyTextStyles(context).cardTitle,
                 ),
                 MyDropDownMenu<RaceType>(
@@ -79,17 +80,17 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Distance",
+                      MinimalLocalizations.of(context).distance,
                       style: MyTextStyles(context).cardTitle,
                     ),
                     Row(
                       children: [
                         Text(
-                          dataController.distanceFormat(),
+                          dataController.distanceFormat()[0],
                           style: MyTextStyles(context).homeCardValue,
                         ),
                         Text(
-                          "cm",
+                          dataController.distanceFormat()[1],
                           style: MyTextStyles(context).homeCardText,
                         ),
                       ],
@@ -119,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         Text(
-                          dataController.distanceFormat(),
+                          dataController.distanceFormat()[0],
                           style: MyTextStyles(context).homeCardValue,
                         ),
                       ],
@@ -144,11 +145,11 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         Text(
-                          dataController.distanceFormat(),
+                          dataController.distanceFormat()[0],
                           style: MyTextStyles(context).homeCardValue,
                         ),
                         Text(
-                          "kg",
+                          dataController.distanceFormat()[1],
                           style: MyTextStyles(context).homeCardText,
                         ),
                       ],

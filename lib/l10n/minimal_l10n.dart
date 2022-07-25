@@ -17,6 +17,9 @@ class MinimalLocalizations {
   static const _localizedValues = <String, Map<String, String>>{
     'en': {
       'title': 'Pace Calculator',
+      'unit': 'Unit',
+      'Race Type': 'Race Type',
+      'distance': 'Distance',
       'raceType:customized': 'Customized Distance',
       'raceType:50m': '50m',
       'raceType:100m': '100m',
@@ -38,6 +41,9 @@ class MinimalLocalizations {
     },
     'zh': {
       'title': '配速计算器',
+      'unit': '单位',
+      'Race Type': '比赛类型',
+      'distance': '距离',
       'raceType:customized': '自定义距离',
       'raceType:50m': '50 米',
       'raceType:100m': '100 米',
@@ -63,6 +69,18 @@ class MinimalLocalizations {
 
   String get title {
     return _localizedValues[locale.languageCode]!['title']!;
+  }
+
+  String get unit {
+    return _localizedValues[locale.languageCode]!['unit']!;
+  }
+
+  String get raceType {
+    return _localizedValues[locale.languageCode]!['Race Type']!;
+  }
+
+  String get distance {
+    return _localizedValues[locale.languageCode]!['distance']!;
   }
 
   String getL10nByKey(String key) {

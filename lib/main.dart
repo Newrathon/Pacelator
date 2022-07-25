@@ -34,6 +34,10 @@ class MyApp extends StatelessWidget {
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
             ],
+            supportedLocales: [
+              Locale('en', ''), // English, no country code
+              Locale('zh', ''), // Spanish, no country code
+            ],
             home: HomePage(),
             theme: ThemeData(
               scaffoldBackgroundColor: lightColorScheme.background,

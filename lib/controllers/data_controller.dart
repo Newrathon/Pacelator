@@ -91,19 +91,19 @@ class DataController extends ChangeNotifier {
         : RaceType.statuteTypes;
   }
 
-  String distanceFormat() {
+  List<String> distanceFormat() {
     if (unit == DistanceUnit.metric) {
       if (distance! <= 1000) {
-        return "${distance!.toStringAsFixed(0)}${unit!.unit1}";
+        return ["${distance!.toStringAsFixed(0)}", "${unit!.unit1}"];
       } else {
         if (distance == 21097.5) {
-          return "21.0975${unit!.unit2}";
+          return ["21.0975", "${unit!.unit2}"];
         }
         if (distance == 42195) {
-          return "42.195km";
+          return ["42.195", "km"];
         }
       }
     }
-    return "${(distance! / 1000).toStringAsFixed(1)}${unit!.unit2}";
+    return ["${(distance! / 1000).toStringAsFixed(1)}", "${unit!.unit2}"];
   }
 }
