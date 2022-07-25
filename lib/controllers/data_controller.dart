@@ -44,6 +44,9 @@ class DataController extends ChangeNotifier {
   void setDistance(double? distance) {
     this.distance = distance;
     box.put('distance', distance);
+    //If changed, it means start a customized type
+    this.raceType = RaceType.tCustomized;
+    box.put('raceType', RaceType.tCustomized.index);
     notifyListeners();
   }
 

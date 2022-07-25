@@ -122,10 +122,6 @@ class _HomePageState extends State<HomePage> {
                           dataController.distanceFormat(),
                           style: MyTextStyles(context).homeCardValue,
                         ),
-                        Text(
-                          "cm",
-                          style: MyTextStyles(context).homeCardText,
-                        ),
                       ],
                     ),
                   ],

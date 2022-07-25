@@ -2,9 +2,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:macro_calculator/controllers/data_controller.dart';
 import 'package:macro_calculator/controllers/theme_controller.dart';
 import 'package:macro_calculator/pages/home_page.dart';
+import 'package:macro_calculator/l10n/minimal_l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_calculator/utils/color_schemes.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -25,7 +27,13 @@ class MyApp extends StatelessWidget {
         builder: (context, theme, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Macro Calculator',
+            onGenerateTitle: (BuildContext context) =>
+                MinimalLocalizations.of(context).title,
+            localizationsDelegates: [
+              MinimalLocalizationsDelegate(),
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
             home: HomePage(),
             theme: ThemeData(
               scaffoldBackgroundColor: lightColorScheme.background,

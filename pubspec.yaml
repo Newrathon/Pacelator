@@ -8,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations: #i18n
+    sdk: flutter
+  intl: ^0.17.0        
   cupertino_icons: ^1.0.5
   eva_icons_flutter: ^3.1.0
   hive: ^2.2.3
