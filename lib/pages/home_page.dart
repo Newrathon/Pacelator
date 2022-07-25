@@ -139,6 +139,7 @@ class _HomePageState extends State<HomePage> {
                   hourLabel: MinimalLocalizations.of(context).hourLabel,
                   minuteLabel: MinimalLocalizations.of(context).minuteLabel,
                   is24HrFormat: true,
+                  focusMinutePicker: true,
                   dialogInsetPadding:
                       EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                 ),
@@ -149,10 +150,10 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        tooltip: 'Calculate',
+        tooltip: MinimalLocalizations.of(context).calculate,
         heroTag: 'fab',
-        icon: Icon(Icons.done),
-        label: Text('Calculate'),
+        icon: Icon(Icons.calculate),
+        label: Text(MinimalLocalizations.of(context).calculate),
         onPressed: () {
           Calculator calculator = Calculator(
             gender: dataController.gender!,

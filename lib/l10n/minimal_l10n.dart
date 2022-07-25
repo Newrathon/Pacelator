@@ -20,6 +20,7 @@ class MinimalLocalizations {
       'Light Mode': 'Light Mode',
       'Hour Label': 'Hours',
       'Minute Label': 'Minutes',
+      'Calculate': 'Calculate',
       'Estimated Finish Time': 'Estimated Finish Time',
       'Dark Mode': 'Dark Mode',
       'unit': 'Unit',
@@ -47,13 +48,14 @@ class MinimalLocalizations {
     'zh': {
       'title': '配速计算器',
       'unit': '单位',
+      'Calculate': '计算',
       'Hour Label': '小时',
       'Minute Label': '分钟',
       'Race Type': '比赛类型',
       'Light Mode': '浅色模式',
       'Dark Mode': '深色模式',
       'distance': '距离',
-      'Estimated Finish Time': '预计完成时间',
+      'Estimated Finish Time': '预计完赛时间',
       'raceType:customized': '自定义距离',
       'raceType:50m': '50 米',
       'raceType:100m': '100 米',
@@ -111,6 +113,10 @@ class MinimalLocalizations {
 
   String get estimateFinishTime {
     return _localizedValues[locale.languageCode]!['Estimated Finish Time']!;
+  }
+
+  String get calculate {
+    return _localizedValues[locale.languageCode]!['Calculate']!;
   }
 
   String getL10nByKey(String key) {
