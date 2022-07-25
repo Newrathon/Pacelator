@@ -14,6 +14,8 @@ import 'package:macro_calculator/widgets/tile.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:provider/provider.dart';
 import 'package:macro_calculator/l10n/minimal_l10n.dart';
+import 'package:day_night_time_picker/day_night_time_picker.dart';
+import 'package:day_night_time_picker/lib/constants.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -112,30 +114,6 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Distance",
-                      style: MyTextStyles(context).cardTitle,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          dataController.distanceFormat()[0],
-                          style: MyTextStyles(context).homeCardValue,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                MyCustomSlider(
-                  value: dataController.distance!,
-                  minValue: RaceType.t50m.distance,
-                  maxValue: RaceType.t100k.distance,
-                  onChanged: (value) => dataController.setDistance(value),
-                ),
-
                 //! weight slider
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,54 +122,32 @@ class _HomePageState extends State<HomePage> {
                       MinimalLocalizations.of(context).estimateFinishTime,
                       style: MyTextStyles(context).cardTitle,
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          dataController.distanceFormat()[0],
-                          style: MyTextStyles(context).homeCardValue,
-                        ),
-                        Text(
-                          dataController.distanceFormat()[1],
-                          style: MyTextStyles(context).homeCardText,
-                        ),
-                      ],
-                    ),
                   ],
                 ),
-                MyCustomSlider(
-                  value: dataController.finishTime!,
-                  minValue: 40,
-                  maxValue: 150,
-                  onChanged: (value) => dataController.setDistance(value),
+
+                createInlinePicker(
+                  elevation: 1,
+                  value: dataController.getTimeOfDay(),
+                  onChange: (value) => dataController.setFinshTime(value),
+                  minuteInterval: MinuteInterval.ONE,
+                  iosStylePicker: true,
+                  minHour: 0,
+                  displayHeader: false,
+                  isOnChangeValueMode: true,
+                  accentColor: Color(0xff6750a4),
+                  maxHour: 23,
+                  hourLabel: MinimalLocalizations.of(context).hourLabel,
+                  minuteLabel: MinimalLocalizations.of(context).minuteLabel,
+                  is24HrFormat: true,
+                  dialogInsetPadding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                 ),
-                // age number picker
-                Text(
-                  "Age",
-                  style: MyTextStyles(context).cardTitle,
-                ),
-                Center(
-                  child: NumberPicker(
-                    minValue: 12,
-                    maxValue: 80,
-                    itemCount: 7,
-                    itemWidth: 47.2,
-                    selectedTextStyle: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textStyle: TextStyle(color: colorScheme(context).tertiary),
-                    value: dataController.age!,
-                    axis: Axis.horizontal,
-                    onChanged: (value) => dataController.setAge(value),
-                  ),
-                )
               ],
             ),
           ),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         tooltip: 'Calculate',
         heroTag: 'fab',

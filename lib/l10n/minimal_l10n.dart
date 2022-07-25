@@ -18,6 +18,8 @@ class MinimalLocalizations {
     'en': {
       'title': 'Pace Calculator',
       'Light Mode': 'Light Mode',
+      'Hour Label': 'Hours',
+      'Minute Label': 'Minutes',
       'Estimated Finish Time': 'Estimated Finish Time',
       'Dark Mode': 'Dark Mode',
       'unit': 'Unit',
@@ -45,6 +47,8 @@ class MinimalLocalizations {
     'zh': {
       'title': '配速计算器',
       'unit': '单位',
+      'Hour Label': '小时',
+      'Minute Label': '分钟',
       'Race Type': '比赛类型',
       'Light Mode': '浅色模式',
       'Dark Mode': '深色模式',
@@ -95,6 +99,14 @@ class MinimalLocalizations {
 
   String get darkMode {
     return _localizedValues[locale.languageCode]!['Dark Mode']!;
+  }
+
+  String get minuteLabel {
+    return _localizedValues[locale.languageCode]!['Minute Label']!;
+  }
+
+  String get hourLabel {
+    return _localizedValues[locale.languageCode]!['Hour Label']!;
   }
 
   String get estimateFinishTime {

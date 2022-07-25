@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:macro_calculator/utils/enums.dart';
+import 'package:flutter/material.dart';
 
 class DataController extends ChangeNotifier {
   Gender? gender;
@@ -9,7 +9,8 @@ class DataController extends ChangeNotifier {
   DistanceUnit? unit;
   RaceType? raceType; //类型
   double? distance; //距离
-  double? finishTime; //完成时间
+  int? finishTimeHour; //完成时间分钟
+  int? finishTimeMinute; //完成时间分钟
   int? age;
 
   ActivityLevel? activityLevel;
@@ -20,7 +21,8 @@ class DataController extends ChangeNotifier {
   DataController() {
     this.gender = Gender.values[box.get('gender') ?? 0];
     this.height = box.get('height') ?? 170;
-    this.finishTime = box.get('finishTime') ?? 105;
+    this.finishTimeHour = box.get('finishTimeHour') ?? 0;
+    this.finishTimeMinute = box.get('finishTimeMinute') ?? 0;
     this.distance = box.get('distance') ?? 70;
     this.age = box.get('age') ?? 25;
     this.activityLevel = ActivityLevel.values[box.get('activityLevel') ?? 2];
@@ -87,10 +89,24 @@ class DataController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setFinshTime(TimeOfDay? timeOfDay) {
+    this.finishTimeHour = timeOfDay?.hour;
+    box.put('finishTimeHour', this.finishTimeHour);
+    this.finishTimeMinute = timeOfDay?.minute;
+    box.put('finishTimeMinute', this.finishTimeMinute);
+
+    notifyListeners();
+  }
+
   List<RaceType> getRaceType() {
     return unit == DistanceUnit.metric
         ? RaceType.metricTypes
         : RaceType.statuteTypes;
+  }
+
+  TimeOfDay getTimeOfDay() {
+    return TimeOfDay.now()
+        .replacing(hour: finishTimeHour, minute: finishTimeMinute);
   }
 
   List<String> distanceFormat() {
