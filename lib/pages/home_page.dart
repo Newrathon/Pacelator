@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Macro Calculator"),
+        title: Text("Pace Calculator"),
         actions: [
           IconButton(
             tooltip: isThemeDark(context) ? 'Light Mode' : 'Dark Mode',
@@ -47,46 +47,45 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         padding: EdgeInsets.all(6.0),
         children: [
+          //! second container
           Tile(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: MyButton(
-                        icon: Icons.male,
-                        title: 'Male',
-                        selected: dataController.gender == Gender.male,
-                        onTap: () => dataController.setGender(Gender.male),
-                      ),
-                    ),
-                    spacer(width: 12),
-                    Expanded(
-                      child: MyButton(
-                        icon: Icons.female,
-                        title: 'Female',
-                        selected: dataController.gender == Gender.female,
-                        onTap: () => dataController.setGender(Gender.female),
-                      ),
-                    ),
-                  ],
+                Text(
+                  "Unit",
+                  style: MyTextStyles(context).cardTitle,
                 ),
-
-                spacer(height: 12),
-
-                //! height slider
+                MyDropDownMenu<DistanceUnit>(
+                  items: DistanceUnit.values
+                      .where((u) => u != DistanceUnit.unknown)
+                      .toList(),
+                  value: dataController.unit!,
+                  onChanged: (value) => dataController.setUnit(value),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  "Race Type",
+                  style: MyTextStyles(context).cardTitle,
+                ),
+                MyDropDownMenu<RaceType>(
+                  items: dataController.unit == DistanceUnit.metric
+                      ? RaceType.metricTypes
+                      : RaceType.statuteTypes,
+                  value: dataController.raceType!,
+                  onChanged: (value) => dataController.setRaceType(value),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Height",
+                      "Distance",
                       style: MyTextStyles(context).cardTitle,
                     ),
                     Row(
                       children: [
                         Text(
-                          "${dataController.height!.toStringAsFixed(0)}",
+                          dataController.distanceFormat(),
                           style: MyTextStyles(context).homeCardValue,
                         ),
                         Text(
@@ -98,10 +97,44 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 MyCustomSlider(
-                  value: dataController.height!,
-                  minValue: 100,
-                  maxValue: 220,
-                  onChanged: (value) => dataController.setHeight(value),
+                  value: dataController.distance!,
+                  minValue: RaceType.t50m.distance,
+                  maxValue: RaceType.t100k.distance,
+                  onChanged: (value) => dataController.setDistance(value),
+                ),
+              ],
+            ),
+          ),
+          Tile(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Distance",
+                      style: MyTextStyles(context).cardTitle,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          dataController.distanceFormat(),
+                          style: MyTextStyles(context).homeCardValue,
+                        ),
+                        Text(
+                          "cm",
+                          style: MyTextStyles(context).homeCardText,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                MyCustomSlider(
+                  value: dataController.distance!,
+                  minValue: RaceType.t50m.distance,
+                  maxValue: RaceType.t100k.distance,
+                  onChanged: (value) => dataController.setDistance(value),
                 ),
 
                 //! weight slider
@@ -109,13 +142,13 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Weight",
+                      "Estimated Time Finished",
                       style: MyTextStyles(context).cardTitle,
                     ),
                     Row(
                       children: [
                         Text(
-                          "${dataController.weight!.toStringAsFixed(0)}",
+                          dataController.distanceFormat(),
                           style: MyTextStyles(context).homeCardValue,
                         ),
                         Text(
@@ -127,10 +160,10 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 MyCustomSlider(
-                  value: dataController.weight!,
+                  value: dataController.finishTime!,
                   minValue: 40,
                   maxValue: 150,
-                  onChanged: (value) => dataController.setWeight(value),
+                  onChanged: (value) => dataController.setDistance(value),
                 ),
                 // age number picker
                 Text(
@@ -157,34 +190,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-
-          //! second container
-          Tile(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Activity level",
-                  style: MyTextStyles(context).cardTitle,
-                ),
-                MyDropDownMenu<ActivityLevel>(
-                  items: ActivityLevel.values,
-                  value: dataController.activityLevel!,
-                  onChanged: (value) => dataController.setActivityLevel(value),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  "Goal",
-                  style: MyTextStyles(context).cardTitle,
-                ),
-                MyDropDownMenu<Goal>(
-                  items: Goal.values,
-                  value: dataController.goal!,
-                  onChanged: (value) => dataController.setGoal(value),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -197,7 +202,7 @@ class _HomePageState extends State<HomePage> {
           Calculator calculator = Calculator(
             gender: dataController.gender!,
             height: dataController.height!,
-            weight: dataController.weight!,
+            distance: dataController.distance!,
             age: dataController.age!,
             activityLevel: dataController.activityLevel!,
             goal: dataController.goal!,

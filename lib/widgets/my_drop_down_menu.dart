@@ -36,9 +36,7 @@ class MyDropDownMenu<T> extends StatelessWidget {
           return DropdownMenuItem<T>(
             value: value,
             child: Text(
-              T == ActivityLevel
-                  ? _getText(value) + ' active'
-                  : _getText(value) + ' weight',
+              T == ActivityLevel ? _getText(value) : _getText(value),
             ),
           );
         }).toList(),

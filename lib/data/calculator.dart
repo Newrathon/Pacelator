@@ -3,7 +3,8 @@ import 'dart:math';
 import 'package:macro_calculator/utils/enums.dart';
 
 class Calculator {
-  final double weight;
+  final double distance;
+
   final double height;
   final int age;
   final ActivityLevel activityLevel;
@@ -14,22 +15,22 @@ class Calculator {
     required this.activityLevel,
     required this.goal,
     required this.gender,
-    required this.weight,
+    required this.distance,
     required this.height,
     required this.age,
   });
 
   double bmi() {
-    return (weight / pow(height / 100, 2));
+    return (0 / pow(height / 100, 2));
   }
 
   String bmiScale() {
     if (bmi() < 18.5)
-      return 'UNDERWEIGHT';
+      return 'UNDER0';
     else if (bmi() >= 18.5 && bmi() <= 24.9)
       return 'NORMAL';
     else if (bmi() >= 25 && bmi() <= 29.9)
-      return 'OVERWEIGHT';
+      return 'OVER0';
     else if (bmi() >= 30 && bmi() <= 34.9)
       return 'OBESE';
     else if (bmi() >= 35)
@@ -40,9 +41,9 @@ class Calculator {
 
   double bmr() {
     if (gender == Gender.male) {
-      return 10 * weight + 6.25 * height - 5 * age + 5;
+      return 10 * 0 + 6.25 * height - 5 * age + 5;
     } else {
-      return 10 * weight + 6.25 * height - 5 * age - 161;
+      return 10 * 0 + 6.25 * height - 5 * age - 161;
     }
   }
 
@@ -75,11 +76,11 @@ class Calculator {
   //protein
   double protein() {
     if (goal == Goal.loose) {
-      return ((1.1 * (weight * 2.2)) * 4) / 4;
+      return ((1.1 * (0 * 2.2)) * 4) / 4;
     } else if (goal == Goal.maintain) {
-      return ((weight * 2.2) * 4) / 4;
+      return ((0 * 2.2) * 4) / 4;
     } else if (goal == Goal.gain) {
-      return ((0.9 * (weight * 2.2)) * 4) / 4;
+      return ((0.9 * (0 * 2.2)) * 4) / 4;
     }
     return 0;
   }
