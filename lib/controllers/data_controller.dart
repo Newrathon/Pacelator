@@ -105,6 +105,11 @@ class DataController extends ChangeNotifier {
           return ["42.195", "km"];
         }
       }
+    } else if (unit == DistanceUnit.statute) {
+      return [
+        "${(distance! / MILE_TO_METER).toStringAsFixed(1)}",
+        "${unit!.unit2}"
+      ];
     }
     return ["${(distance! / 1000).toStringAsFixed(1)}", "${unit!.unit2}"];
   }
