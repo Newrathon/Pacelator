@@ -32,10 +32,12 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pace Calculator"),
+        title: Text(MinimalLocalizations.of(context).title),
         actions: [
           IconButton(
-            tooltip: isThemeDark(context) ? 'Light Mode' : 'Dark Mode',
+            tooltip: isThemeDark(context)
+                ? MinimalLocalizations.of(context).lightMode
+                : MinimalLocalizations.of(context).darkMode,
             icon: Icon(
               isThemeDark(context) ? EvaIcons.sunOutline : EvaIcons.moonOutline,
             ),
@@ -139,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Estimated Time Finished",
+                      MinimalLocalizations.of(context).estimateFinishTime,
                       style: MyTextStyles(context).cardTitle,
                     ),
                     Row(

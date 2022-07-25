@@ -65,6 +65,8 @@ class DataController extends ChangeNotifier {
   void setUnit(DistanceUnit? unit) {
     this.unit = unit;
     box.put('unit', unit?.index);
+    this.raceType = RaceType.tCustomized;
+    box.put('raceType', RaceType.tCustomized.index);
     notifyListeners();
   }
 
