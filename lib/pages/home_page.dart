@@ -90,11 +90,11 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         Text(
-                          dataController.distanceFormat()[0],
+                          dataController.distanceFormatted()[0],
                           style: MyTextStyles(context).homeCardValue,
                         ),
                         Text(
-                          dataController.distanceFormat()[1],
+                          dataController.distanceFormatted()[1],
                           style: MyTextStyles(context).homeCardText,
                         ),
                       ],
@@ -222,6 +222,7 @@ class _HomePageState extends State<HomePage> {
             context,
             MaterialPageRoute(
               builder: (context) => ResultPage(
+                  distance: dataController.distanceFormatted(),
                   unit: calculator.unit,
                   raceType: calculator.raceType,
                   estimateTimeFinished: calculator.estimatedTimeFinished(),

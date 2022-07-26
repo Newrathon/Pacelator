@@ -3,6 +3,7 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_calculator/utils/enums.dart';
 import 'package:macro_calculator/widgets/footer_tile.dart';
+import 'package:macro_calculator/widgets/header_tile.dart';
 import 'package:macro_calculator/widgets/result_tile.dart';
 import 'package:macro_calculator/widgets/split_tile.dart';
 import 'package:path_provider/path_provider.dart';
@@ -30,15 +31,29 @@ class ResultPage extends StatelessWidget {
     required this.splits,
     required this.raceType,
     required this.unit,
+    required this.distance,
   });
   final String estimateTimeFinished;
   final String averagePace;
+  final List<String> distance;
   final RaceType raceType;
   final DistanceUnit unit;
   final List<RunSplit> splits;
 
-  List<Widget> getScreenshotContent(BuildContext context) {
+  List<String> getDistanceInfo(RaceType raceType, BuildContext context) {
+    if (raceType == RaceType.tCustomized) {
+      return distance;
+    }
     return [
+      MinimalLocalizations.of(context).getL10nByKey(raceType.l10nKey),
+      ''
+    ];
+  }
+
+  List<Widget> getScreenshotContent(BuildContext context) {
+    List<String> distanceInfo = getDistanceInfo(raceType, context);
+    return [
+      HeaderTile(title: '${distanceInfo[0]} ${distanceInfo[1]}'),
       ResultTile(
         title: MinimalLocalizations.of(context).estimateFinishTime,
         value: estimateTimeFinished,
@@ -63,8 +78,7 @@ class ResultPage extends StatelessWidget {
     List<Widget> screenshotContent = getScreenshotContent(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-            '${MinimalLocalizations.of(context).getL10nByKey(raceType.l10nKey)} ${MinimalLocalizations.of(context).results}'),
+        title: Text('${MinimalLocalizations.of(context).results}'),
         leading: IconButton(
           icon: Icon(EvaIcons.chevronLeft),
           onPressed: () => Navigator.pop(context),

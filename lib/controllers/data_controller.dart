@@ -139,7 +139,7 @@ class DataController extends ChangeNotifier {
         .replacing(hour: this.finishTimeHour, minute: this.finishTimeMinute);
   }
 
-  List<String> distanceFormat() {
+  List<String> distanceFormatted() {
     if (unit == DistanceUnit.metric) {
       if (distance! <= 1000) {
         return ["${distance!.toStringAsFixed(0)}", "${unit!.unit1}"];
