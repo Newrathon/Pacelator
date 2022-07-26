@@ -7,10 +7,14 @@ Pace calcualtor is a simple app that calculates the pace for a running race.
 ## Screenshots
 
 <p>
-<img height="328px" width="175px" src="screenshots/home_light.png" alt="macroCalculator"/>
-<img height="328px" width="175px" src="screenshots/result_light.png" alt="macroCalculator"/>
-<img height="328px" width="175px" src="screenshots/home_dark.png" alt="macroCalculator"/>
-<img height="328px" width="175px" src="screenshots/result_dark.png" alt="macroCalculator"/> </p>
+<img height="328px" width="175px" src="screenshots/home_light.jpg" alt="macroCalculator"/>
+<img height="328px" width="175px" src="screenshots/result_light.jpg" alt="macroCalculator"/>
+<img height="328px" width="175px" src="screenshots/home_dark.jpg" alt="macroCalculator"/>
+<img height="328px" width="175px" src="screenshots/result_dark.jpg" alt="macroCalculator"/> </p>
+
+## Build
+
+[Build and release an Android app](https://docs.flutter.dev/deployment/android)
 
 ## License
 
