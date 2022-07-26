@@ -3,16 +3,17 @@ import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:macro_calculator/utils/enums.dart';
 import 'package:macro_calculator/widgets/result_tile.dart';
+import 'package:macro_calculator/widgets/split_tile.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:macro_calculator/l10n/minimal_l10n.dart';
 
 class RunSplit {
-  final int splitNo;
-  final int splitDistance;
-  final int splitPace;
-  final int splitTime;
+  final String splitNo;
+  final String splitDistance;
+  final String splitPace;
+  final String splitTime;
 
   RunSplit(
       {required this.splitNo,
@@ -67,42 +68,9 @@ class ResultPage extends StatelessWidget {
                     units: MinimalLocalizations.of(context)
                         .getL10nByKey(unit.unit3),
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ResultTile(
-                          title: "Protein",
-                          value: "xxx",
-                          units: "GRAMS",
-                        ),
-                      ),
-                      Expanded(
-                        child: ResultTile(
-                          title: "Fats",
-                          value: "xcc",
-                          units: "GRAMS",
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ResultTile(
-                          title: "BMI",
-                          value: "45",
-                          units: "bmiScale",
-                        ),
-                      ),
-                      Expanded(
-                        child: ResultTile(
-                          title: "TDEE",
-                          value: "ww",
-                          units: "KCALS",
-                        ),
-                      ),
-                    ],
-                  ),
+                  SplitTile(
+                      title: MinimalLocalizations.of(context).splits,
+                      splits: splits)
                 ],
               ),
             ),

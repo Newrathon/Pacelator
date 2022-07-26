@@ -20,6 +20,10 @@ class MinimalLocalizations {
       'Light Mode': 'Light Mode',
       'Results': 'Results',
       'hhMMSS': 'HH:MM:SS',
+      'lapNo': 'Lap No.',
+      'lapDistance': 'Lap Distance',
+      'lapTime': 'Lap Time',
+      'splits': 'Splits',
       'Hour Label': 'Hours',
       'Minute Label': 'Minutes',
       'Calculate': 'Calculate',
@@ -54,6 +58,10 @@ class MinimalLocalizations {
     'zh': {
       'title': '配速计算器',
       'unit': '单位',
+      'splits': '分段',
+      'lapNo': '圈数',
+      'lapDistance': '距离',
+      'lapTime': '时间',
       'Results': '计算结果',
       'Calculate': '计算',
       'Hour Label': '小时',
@@ -139,12 +147,28 @@ class MinimalLocalizations {
     return _localizedValues[locale.languageCode]!['Results']!;
   }
 
+  String get splits {
+    return _localizedValues[locale.languageCode]!['splits']!;
+  }
+
   String get pace {
     return _localizedValues[locale.languageCode]!['Pace']!;
   }
 
   String get hhMMSS {
     return _localizedValues[locale.languageCode]!['hhMMSS']!;
+  }
+
+  String get lapNo {
+    return _localizedValues[locale.languageCode]!['lapNo']!;
+  }
+
+  String get lapTime {
+    return _localizedValues[locale.languageCode]!['lapTime']!;
+  }
+
+  String get lapDistance {
+    return _localizedValues[locale.languageCode]!['lapDistance']!;
   }
 
   String getL10nByKey(String key) {
