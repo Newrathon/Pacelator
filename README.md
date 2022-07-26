@@ -1,8 +1,8 @@
-# Macro Calculator
+# Pace Calculator
 
-Macro calcualtor is a simple app that calculates the required macros and calculator based on height, weight, age and activity level.
+Pace calcualtor is a simple app that calculates the pace for a running race.
 
-[<img height="75" width="200" src="./screenshots/google-play-badge.png" alt="Play Store"/>](https://play.google.com/store/apps/details?id=com.newrathon.pace_calculator)
+<!-- [<img height="75" width="200" src="./screenshots/google-play-badge.png" alt="Play Store"/>](https://play.google.com/store/apps/details?id=com.newrathon.pace_calculator) -->
 
 ## Screenshots
 
@@ -15,3 +15,7 @@ Macro calcualtor is a simple app that calculates the required macros and calcula
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Credit
+
+This app is developed based on [Macro Calculator](https://github.com/varadgauthankar/macro_calculator.git). Thanks~
