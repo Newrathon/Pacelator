@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:macro_calculator/pages/results_page.dart';
+import 'package:macro_calculator/utils/enums.dart';
 
 import 'package:macro_calculator/utils/textStyles.dart';
 import 'package:macro_calculator/widgets/tile.dart';
@@ -9,10 +10,12 @@ class SplitTile extends StatelessWidget {
   const SplitTile({
     Key? key,
     required this.title,
+    required this.unit,
     required this.splits,
   }) : super(key: key);
 
   final String title;
+  final DistanceUnit unit;
   final List<RunSplit> splits;
 
   List<TableRow> getTableRows(BuildContext context) {
@@ -69,7 +72,8 @@ class SplitTile extends StatelessWidget {
         ),
         TableCell(
           verticalAlignment: TableCellVerticalAlignment.middle,
-          child: Text(MinimalLocalizations.of(context).lapDistance,
+          child: Text(
+              '${MinimalLocalizations.of(context).lapDistance}(${unit.unit2})',
               style: MyTextStyles(context).resultCardUnit,
               textAlign: TextAlign.center),
         ),
@@ -79,19 +83,14 @@ class SplitTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<TableRow> tableRows = getTableRows(context);
     return Tile(
       child: Column(
         children: [
           Text(title, style: MyTextStyles(context).resultCardText),
           Table(
-              // border: TableBorder.all(),
-              // columnWidths: const <int, TableColumnWidth>{
-              //   0: FixedColumnWidth(64), //lap NO.
-              //   1: FixedColumnWidth(300), //distance
-              //   2: FixedColumnWidth(64), //time in this lap
-              // },
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-              children: getTableRows(context))
+              children: tableRows),
         ],
       ),
     );

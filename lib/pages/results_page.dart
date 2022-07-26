@@ -69,6 +69,7 @@ class ResultPage extends StatelessWidget {
                         .getL10nByKey(unit.unit3),
                   ),
                   SplitTile(
+                      unit: unit,
                       title: MinimalLocalizations.of(context).splits,
                       splits: splits)
                 ],
