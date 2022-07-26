@@ -108,8 +108,6 @@ class Calculator {
 
     List<RunSplit> splits = [];
     Map<String, int> paceMap = getPace();
-    print('paceMap: $paceMap');
-
     int paceInSecond =
         paceMap['hour']! * 3600 + paceMap['minute']! * 60 + paceMap['second']!;
     for (var i = 0; i < splitNum; i++) {
@@ -129,7 +127,6 @@ class Calculator {
   String getCumulativeTime(int splitNo, int paceInSecond) {
     int cumulativeSecond = paceInSecond * (splitNo + 1);
     int hours = (cumulativeSecond ~/ 3600);
-    print('paceInSecond: $paceInSecond');
     int minutes = (cumulativeSecond % 3600) ~/ 60;
     int seconds = cumulativeSecond % 3600 % 60;
     return "${hours == 0 ? '' : formatNumLeftPadding0(hours) + ':'}${formatNumLeftPadding0(minutes)}:${formatNumLeftPadding0(seconds)}";

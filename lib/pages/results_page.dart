@@ -94,8 +94,8 @@ class ResultPage extends StatelessWidget {
     await file.writeAsBytes(unit8List!);
     await Share.shareFiles(
       [file.path],
-      text: 'Calculated from Macro Calculator.\n' +
-          'download now: https://play.google.com/store/apps/details?id=com.varadgauthankar.macro_calculator',
+      text: 'Newrathon Pace Calculator.\n' +
+          'download now: https://play.google.com/store/apps/details?id=com.newrathon.pace_calculator',
     );
   }
 }

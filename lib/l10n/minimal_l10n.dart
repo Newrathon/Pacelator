@@ -27,7 +27,7 @@ class MinimalLocalizations {
       'Hour Label': 'Hours',
       'Minute Label': 'Minutes',
       'Calculate': 'Calculate',
-      'Estimated Finish Time': 'Estimated Finish Time',
+      'Estimated Finish Time': 'Est. Finish Time',
       'Dark Mode': 'Dark Mode',
       'unit': 'Unit',
       'Pace': 'Pace',
