@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 MyCustomSlider(
                   value: dataController.distance!,
-                  minValue: RaceType.t50m.distance,
+                  minValue: RaceType.t1000m.distance,
                   maxValue: RaceType.t100k.distance,
                   onChanged: (value) => dataController.setDistance(value),
                 ),
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                             child: TabBar(
                               labelColor: Color(0xff6750a4),
                               indicatorColor: Color(0xff6750a4),
-                              unselectedLabelColor: Colors.black,
+                              unselectedLabelColor: Colors.grey,
                               onTap: (value) =>
                                   dataController.setTabMode(value),
                               tabs: [

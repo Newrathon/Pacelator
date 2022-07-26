@@ -72,9 +72,9 @@ enum RaceType {
       unit: DistanceUnit.statute,
       l10nKey: "raceType:26mi"),
 
-  t50m(distance: 50, unit: DistanceUnit.metric, l10nKey: "raceType:50m"),
-  t100m(distance: 100, unit: DistanceUnit.metric, l10nKey: "raceType:100m"),
-  t800m(distance: 800, unit: DistanceUnit.metric, l10nKey: "raceType:800m"),
+  // t50m(distance: 50, unit: DistanceUnit.metric, l10nKey: "raceType:50m"),
+  // t100m(distance: 100, unit: DistanceUnit.metric, l10nKey: "raceType:100m"),
+  // t800m(distance: 800, unit: DistanceUnit.metric, l10nKey: "raceType:800m"),
   t1000m(distance: 1000, unit: DistanceUnit.metric, l10nKey: "raceType:1000m"),
   t5k(distance: 5000, unit: DistanceUnit.metric, l10nKey: "raceType:5k"),
   t10k(distance: 10000, unit: DistanceUnit.metric, l10nKey: "raceType:10k"),

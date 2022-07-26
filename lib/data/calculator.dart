@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -23,8 +24,17 @@ class Calculator {
   });
 
   String estimatedTimeFinished() {
+    Map<String, int> etfMap = getEtfTimeMap();
+    return "${formatNumLeftPadding0(etfMap['hour']!)}:${formatNumLeftPadding0(etfMap['minute']!)}:${formatNumLeftPadding0(etfMap['second']!)}";
+  }
+
+  Map<String, int> getEtfTimeMap() {
     if (this.tabMode == TabMode.estimatedFinishTime) {
-      return "${formatNumLeftPadding0(etf.hour)}:${formatNumLeftPadding0(etf.minute)}:00";
+      return {
+        "hour": etf.hour,
+        "minute": etf.minute,
+        "second": 0,
+      };
     } else {
       //pace * distance
       //Here hour is minute actually
@@ -33,11 +43,15 @@ class Calculator {
       int hours = totalTimeInSecond ~/ 3600;
       int minutes = (totalTimeInSecond % 3600) ~/ 60;
       int seconds = totalTimeInSecond % 3600 % 60;
-      return "${formatNumLeftPadding0(hours)}:${formatNumLeftPadding0(minutes)}:${formatNumLeftPadding0(seconds)}";
+      return {
+        "hour": hours,
+        "minute": minutes,
+        "second": seconds,
+      };
     }
   }
 
-  String averagePace() {
+  Map<String, int> getPace() {
     if (this.tabMode == TabMode.estimatedFinishTime) {
       //etf/distance
       int etfInSecond = etf.hour * 3600 + etf.minute * 60;
@@ -46,14 +60,78 @@ class Calculator {
       int hours = (speedInSecond ~/ 3600);
       int minutes = (speedInSecond % 3600) ~/ 60;
       int seconds = speedInSecond % 3600 % 60;
-      return "${hours == 0 ? '' : formatNumLeftPadding0(hours)}:${formatNumLeftPadding0(minutes)}:${formatNumLeftPadding0(seconds)}";
+      return {
+        "hour": hours,
+        "minute": minutes,
+        "second": seconds,
+      };
     } else {
       //Here hour is minute actually
-      return "${formatNumLeftPadding0(pace.hour)}:${formatNumLeftPadding0(pace.minute)}";
+      return {
+        "hour": 0,
+        "minute": pace.hour,
+        "second": pace.minute,
+      };
     }
   }
 
+  String averagePace() {
+    Map<String, int> paceMap = getPace();
+    return "${paceMap['hour'] == 0 ? '' : formatNumLeftPadding0(paceMap['hour']!) + ':'}${formatNumLeftPadding0(paceMap['minute']!)}:${formatNumLeftPadding0(paceMap['second']!)}";
+  }
+
+  String getLastSplitTime(int beforeSplitNum) {
+    Map<String, int> paceMap = getPace();
+    int paceInSecond =
+        paceMap['hour']! * 3600 + paceMap['minute']! * 60 + paceMap['second']!;
+    int splitsBeforeSecond = paceInSecond * beforeSplitNum;
+    Map<String, int> etfMap = getEtfTimeMap();
+    int timeTotalInSecond =
+        etfMap['hour']! * 3600 + etfMap['minute']! * 60 + etfMap['second']!;
+    int lastSplitInSecond = timeTotalInSecond - splitsBeforeSecond;
+    int hours = (lastSplitInSecond ~/ 3600);
+    int minutes = (lastSplitInSecond % 3600) ~/ 60;
+    int seconds = lastSplitInSecond % 3600 % 60;
+    return "${hours == 0 ? '' : formatNumLeftPadding0(hours) + ':'}${formatNumLeftPadding0(minutes)}:${formatNumLeftPadding0(seconds)}";
+  }
+
   List<RunSplit> splits() {
-    return [];
+    double divider = getDividerForDistanceUnit(unit);
+    int splitNum = distance ~/ divider;
+    final double left =
+        (distance - divider * splitNum) / divider; //one split not enough
+    if (left != 0) {
+      splitNum++;
+    }
+
+    String avgPace = averagePace();
+
+    List<RunSplit> splits = [];
+    Map<String, int> paceMap = getPace();
+    print('paceMap: $paceMap');
+
+    int paceInSecond =
+        paceMap['hour']! * 3600 + paceMap['minute']! * 60 + paceMap['second']!;
+    for (var i = 0; i < splitNum; i++) {
+      String cumulativeTime = getCumulativeTime(i, paceInSecond);
+      RunSplit runSplit = RunSplit(
+          splitNo: '${i + 1}',
+          splitDistance:
+              '${left != 0 && i == splitNum - 1 ? left.toStringAsFixed(1) : 1.0}',
+          splitPace: avgPace,
+          splitTime:
+              i == splitNum - 1 ? estimatedTimeFinished() : cumulativeTime);
+      splits.add(runSplit);
+    }
+    return splits;
+  }
+
+  String getCumulativeTime(int splitNo, int paceInSecond) {
+    int cumulativeSecond = paceInSecond * (splitNo + 1);
+    int hours = (cumulativeSecond ~/ 3600);
+    print('paceInSecond: $paceInSecond');
+    int minutes = (cumulativeSecond % 3600) ~/ 60;
+    int seconds = cumulativeSecond % 3600 % 60;
+    return "${hours == 0 ? '' : formatNumLeftPadding0(hours) + ':'}${formatNumLeftPadding0(minutes)}:${formatNumLeftPadding0(seconds)}";
   }
 }
