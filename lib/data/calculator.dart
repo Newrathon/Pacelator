@@ -41,11 +41,12 @@ class Calculator {
     if (this.tabMode == TabMode.estimatedFinishTime) {
       //etf/distance
       int etfInSecond = etf.hour * 3600 + etf.minute * 60;
-      int speedInSecond = etfInSecond ~/
-          distance; //todo: take metric and statute into consideration
+      int speedInSecond =
+          etfInSecond ~/ (distance / getDividerForDistanceUnit(unit));
+      int hours = (speedInSecond ~/ 3600);
       int minutes = (speedInSecond % 3600) ~/ 60;
       int seconds = speedInSecond % 3600 % 60;
-      return "${formatNumLeftPadding0(minutes)}:${formatNumLeftPadding0(seconds)}";
+      return "${hours == 0 ? '' : formatNumLeftPadding0(hours)}:${formatNumLeftPadding0(minutes)}:${formatNumLeftPadding0(seconds)}";
     } else {
       //Here hour is minute actually
       return "${formatNumLeftPadding0(pace.hour)}:${formatNumLeftPadding0(pace.minute)}";

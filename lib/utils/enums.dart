@@ -42,6 +42,13 @@ enum DistanceUnit {
   final String unit3;
 }
 
+double getDividerForDistanceUnit(DistanceUnit unit) {
+  if (unit == DistanceUnit.statute) {
+    return MILE_TO_METER;
+  }
+  return 1000;
+}
+
 const double MILE_TO_METER = 1609.34;
 
 enum TabMode {
