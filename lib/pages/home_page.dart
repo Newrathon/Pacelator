@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () =>
                 Provider.of<ThemeController>(context, listen: false)
                     .toggleTheme(),
-          )
+          ),
         ],
       ),
       body: ListView(
@@ -114,16 +114,6 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //! weight slider
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: <Widget>[
-                //     Text(
-                //       MinimalLocalizations.of(context).estimateFinishTime,
-                //       style: MyTextStyles(context).cardTitle,
-                //     ),
-                //   ],
-                // ),
                 DefaultTabController(
                     length: 2,
                     initialIndex: 0,
@@ -135,6 +125,8 @@ class _HomePageState extends State<HomePage> {
                               labelColor: Color(0xff6750a4),
                               indicatorColor: Color(0xff6750a4),
                               unselectedLabelColor: Colors.black,
+                              onTap: (value) =>
+                                  dataController.setTabMode(value),
                               tabs: [
                                 Tab(
                                     text: MinimalLocalizations.of(context)
@@ -146,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Container(
-                              height: 400, //height of TabBarView
+                              height: 300, //height of TabBarView
                               decoration: BoxDecoration(
                                   border: Border(
                                       top: BorderSide(
@@ -157,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                                     elevation: 1,
                                     value: dataController.getTimeOfDay(),
                                     onChange: (value) =>
-                                        dataController.setFinshTime(value),
+                                        dataController.setFinishedTime(value),
                                     minuteInterval: MinuteInterval.ONE,
                                     iosStylePicker: true,
                                     minHour: 0,
@@ -179,21 +171,21 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   child: createInlinePicker(
                                     elevation: 1,
-                                    value: dataController.getTimeOfDay(),
+                                    value: dataController.getPace(),
                                     onChange: (value) =>
-                                        dataController.setFinshTime(value),
+                                        dataController.setPace(value),
                                     minuteInterval: MinuteInterval.ONE,
                                     iosStylePicker: true,
                                     minHour: 0,
                                     displayHeader: false,
                                     isOnChangeValueMode: true,
                                     accentColor: Color(0xff6750a4),
-                                    maxHour: 23,
+                                    maxHour: 10,
                                     hourLabel: MinimalLocalizations.of(context)
-                                        .hourLabel,
+                                        .minuteLabel,
                                     minuteLabel:
                                         MinimalLocalizations.of(context)
-                                            .minuteLabel,
+                                            .secondsLabel,
                                     is24HrFormat: true,
                                     focusMinutePicker: true,
                                     dialogInsetPadding: EdgeInsets.symmetric(
@@ -201,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ]))
-                        ])),
+                        ]))
               ],
             ),
           ),
@@ -209,7 +201,8 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        tooltip: MinimalLocalizations.of(context).calculate,
+        tooltip: MinimalLocalizations.of(context).calculate +
+            dataController.getTabMode().toString(),
         heroTag: 'fab',
         icon: Icon(Icons.calculate),
         label: Text(MinimalLocalizations.of(context).calculate),
@@ -221,6 +214,7 @@ class _HomePageState extends State<HomePage> {
             age: dataController.age!,
             activityLevel: dataController.activityLevel!,
             goal: dataController.goal!,
+            tabMode: dataController.getTabMode(),
           );
 
           Navigator.push(

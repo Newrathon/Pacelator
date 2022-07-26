@@ -36,6 +36,11 @@ enum DistanceUnit {
 
 const double MILE_TO_METER = 1609.34;
 
+enum TabMode {
+  estimatedFinishTime,
+  paceExpected,
+}
+
 enum RaceType {
   tCustomized(
       distance: 0, unit: DistanceUnit.unknown, l10nKey: "raceType:customized"),

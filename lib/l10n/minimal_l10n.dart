@@ -45,6 +45,7 @@ class MinimalLocalizations {
       'distanceUnit:metric': 'Metric',
       'distanceUnit:statute': 'Statute',
       'distanceUnit:unknown': 'Unknown',
+      "Seconds Label": "Seconds"
     },
     'zh': {
       'title': '配速计算器',
@@ -76,6 +77,7 @@ class MinimalLocalizations {
       'distanceUnit:statute': '英制',
       'distanceUnit:unknown': '未知',
       'Pace': '配速',
+      'Seconds Label': '秒',
     },
   };
 
@@ -107,6 +109,10 @@ class MinimalLocalizations {
 
   String get minuteLabel {
     return _localizedValues[locale.languageCode]!['Minute Label']!;
+  }
+
+  String get secondsLabel {
+    return _localizedValues[locale.languageCode]!['Seconds Label']!;
   }
 
   String get hourLabel {

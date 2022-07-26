@@ -10,6 +10,7 @@ class Calculator {
   final ActivityLevel activityLevel;
   final Goal goal;
   final Gender gender;
+  final TabMode tabMode;
 
   Calculator({
     required this.activityLevel,
@@ -18,6 +19,7 @@ class Calculator {
     required this.distance,
     required this.height,
     required this.age,
+    required this.tabMode,
   });
 
   double bmi() {
