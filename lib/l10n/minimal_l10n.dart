@@ -24,6 +24,7 @@ class MinimalLocalizations {
       'Estimated Finish Time': 'Estimated Finish Time',
       'Dark Mode': 'Dark Mode',
       'unit': 'Unit',
+      'Pace': 'Pace',
       'Race Type': 'Race Type',
       'distance': 'Distance',
       'raceType:customized': 'Customized Distance',
@@ -74,6 +75,7 @@ class MinimalLocalizations {
       'distanceUnit:metric': '公制',
       'distanceUnit:statute': '英制',
       'distanceUnit:unknown': '未知',
+      'Pace': '配速',
     },
   };
 
@@ -117,6 +119,10 @@ class MinimalLocalizations {
 
   String get calculate {
     return _localizedValues[locale.languageCode]!['Calculate']!;
+  }
+
+  String get pace {
+    return _localizedValues[locale.languageCode]!['Pace']!;
   }
 
   String getL10nByKey(String key) {

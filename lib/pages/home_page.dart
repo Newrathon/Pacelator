@@ -115,34 +115,93 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //! weight slider
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      MinimalLocalizations.of(context).estimateFinishTime,
-                      style: MyTextStyles(context).cardTitle,
-                    ),
-                  ],
-                ),
-
-                createInlinePicker(
-                  elevation: 1,
-                  value: dataController.getTimeOfDay(),
-                  onChange: (value) => dataController.setFinshTime(value),
-                  minuteInterval: MinuteInterval.ONE,
-                  iosStylePicker: true,
-                  minHour: 0,
-                  displayHeader: false,
-                  isOnChangeValueMode: true,
-                  accentColor: Color(0xff6750a4),
-                  maxHour: 23,
-                  hourLabel: MinimalLocalizations.of(context).hourLabel,
-                  minuteLabel: MinimalLocalizations.of(context).minuteLabel,
-                  is24HrFormat: true,
-                  focusMinutePicker: true,
-                  dialogInsetPadding:
-                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: <Widget>[
+                //     Text(
+                //       MinimalLocalizations.of(context).estimateFinishTime,
+                //       style: MyTextStyles(context).cardTitle,
+                //     ),
+                //   ],
+                // ),
+                DefaultTabController(
+                    length: 2,
+                    initialIndex: 0,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Container(
+                            child: TabBar(
+                              labelColor: Color(0xff6750a4),
+                              indicatorColor: Color(0xff6750a4),
+                              unselectedLabelColor: Colors.black,
+                              tabs: [
+                                Tab(
+                                    text: MinimalLocalizations.of(context)
+                                        .estimateFinishTime),
+                                Tab(
+                                    text:
+                                        MinimalLocalizations.of(context).pace),
+                              ],
+                            ),
+                          ),
+                          Container(
+                              height: 400, //height of TabBarView
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      top: BorderSide(
+                                          color: Colors.grey, width: 0.5))),
+                              child: TabBarView(children: <Widget>[
+                                Container(
+                                  child: createInlinePicker(
+                                    elevation: 1,
+                                    value: dataController.getTimeOfDay(),
+                                    onChange: (value) =>
+                                        dataController.setFinshTime(value),
+                                    minuteInterval: MinuteInterval.ONE,
+                                    iosStylePicker: true,
+                                    minHour: 0,
+                                    displayHeader: false,
+                                    isOnChangeValueMode: true,
+                                    accentColor: Color(0xff6750a4),
+                                    maxHour: 23,
+                                    hourLabel: MinimalLocalizations.of(context)
+                                        .hourLabel,
+                                    minuteLabel:
+                                        MinimalLocalizations.of(context)
+                                            .minuteLabel,
+                                    is24HrFormat: true,
+                                    focusMinutePicker: true,
+                                    dialogInsetPadding: EdgeInsets.symmetric(
+                                        horizontal: 0.0, vertical: 0.0),
+                                  ),
+                                ),
+                                Container(
+                                  child: createInlinePicker(
+                                    elevation: 1,
+                                    value: dataController.getTimeOfDay(),
+                                    onChange: (value) =>
+                                        dataController.setFinshTime(value),
+                                    minuteInterval: MinuteInterval.ONE,
+                                    iosStylePicker: true,
+                                    minHour: 0,
+                                    displayHeader: false,
+                                    isOnChangeValueMode: true,
+                                    accentColor: Color(0xff6750a4),
+                                    maxHour: 23,
+                                    hourLabel: MinimalLocalizations.of(context)
+                                        .hourLabel,
+                                    minuteLabel:
+                                        MinimalLocalizations.of(context)
+                                            .minuteLabel,
+                                    is24HrFormat: true,
+                                    focusMinutePicker: true,
+                                    dialogInsetPadding: EdgeInsets.symmetric(
+                                        horizontal: 0.0, vertical: 0.0),
+                                  ),
+                                ),
+                              ]))
+                        ])),
               ],
             ),
           ),
