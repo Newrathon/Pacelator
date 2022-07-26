@@ -1,36 +1,46 @@
 import 'dart:io';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:macro_calculator/utils/enums.dart';
 import 'package:macro_calculator/widgets/result_tile.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:macro_calculator/l10n/minimal_l10n.dart';
+
+class RunSplit {
+  final int splitNo;
+  final int splitDistance;
+  final int splitPace;
+  final int splitTime;
+
+  RunSplit(
+      {required this.splitNo,
+      required this.splitDistance,
+      required this.splitPace,
+      required this.splitTime});
+}
 
 class ResultPage extends StatelessWidget {
   ResultPage({
-    required this.totalCalories,
-    required this.carbs,
-    required this.protein,
-    required this.fats,
-    required this.bmi,
-    required this.tdee,
-    required this.bmiScale,
+    required this.averagePace,
+    required this.estimateTimeFinished,
+    required this.splits,
+    required this.raceType,
+    required this.unit,
   });
-
-  final double totalCalories;
-  final double carbs;
-  final double protein;
-  final double fats;
-  final double bmi;
-  final double tdee;
-  final String bmiScale;
-
+  final String estimateTimeFinished;
+  final String averagePace;
+  final RaceType raceType;
+  final DistanceUnit unit;
+  final List<RunSplit> splits;
   @override
   Widget build(BuildContext context) {
     ScreenshotController screenshotController = ScreenshotController();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Results"),
+        title: Text(
+            '${MinimalLocalizations.of(context).getL10nByKey(raceType.l10nKey)} ${MinimalLocalizations.of(context).results}'),
         leading: IconButton(
           icon: Icon(EvaIcons.chevronLeft),
           onPressed: () => Navigator.pop(context),
@@ -47,28 +57,29 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   ResultTile(
-                    title: "Total Calories",
-                    value: "${totalCalories.toStringAsFixed(0)}",
-                    units: "KCALS",
+                    title: MinimalLocalizations.of(context).estimateFinishTime,
+                    value: estimateTimeFinished,
+                    units: MinimalLocalizations.of(context).hhMMSS,
                   ),
                   ResultTile(
-                    title: "Carbs",
-                    value: "${carbs.toStringAsFixed(0)}",
-                    units: "GRAMS",
+                    title: MinimalLocalizations.of(context).pace,
+                    value: averagePace,
+                    units: MinimalLocalizations.of(context)
+                        .getL10nByKey(unit.unit3),
                   ),
                   Row(
                     children: [
                       Expanded(
                         child: ResultTile(
                           title: "Protein",
-                          value: "${protein.toStringAsFixed(0)}",
+                          value: "xxx",
                           units: "GRAMS",
                         ),
                       ),
                       Expanded(
                         child: ResultTile(
                           title: "Fats",
-                          value: "${fats.toStringAsFixed(0)}",
+                          value: "xcc",
                           units: "GRAMS",
                         ),
                       ),
@@ -79,14 +90,14 @@ class ResultPage extends StatelessWidget {
                       Expanded(
                         child: ResultTile(
                           title: "BMI",
-                          value: "${bmi.toStringAsFixed(1)}",
-                          units: bmiScale,
+                          value: "45",
+                          units: "bmiScale",
                         ),
                       ),
                       Expanded(
                         child: ResultTile(
                           title: "TDEE",
-                          value: "${tdee.toStringAsFixed(0)}",
+                          value: "ww",
                           units: "KCALS",
                         ),
                       ),

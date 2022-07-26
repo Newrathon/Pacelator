@@ -129,12 +129,12 @@ class DataController extends ChangeNotifier {
         : RaceType.statuteTypes;
   }
 
-  TimeOfDay getPace() {
+  TimeOfDay getPaceMinuteSecondTime() {
     return TimeOfDay.now()
         .replacing(hour: this.paceMinute, minute: this.paceSecond);
   }
 
-  TimeOfDay getTimeOfDay() {
+  TimeOfDay getFinishedHourMinuteTime() {
     return TimeOfDay.now()
         .replacing(hour: this.finishTimeHour, minute: this.finishTimeMinute);
   }

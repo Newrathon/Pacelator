@@ -18,8 +18,16 @@ enum Goal {
 }
 
 enum DistanceUnit {
-  statute(l10nKey: "distanceUnit:statute", unit1: "yr", unit2: "mi", unit3: ""),
-  metric(l10nKey: "distanceUnit:metric", unit1: "m", unit2: "km", unit3: ""),
+  statute(
+      l10nKey: "distanceUnit:statute",
+      unit1: "yr",
+      unit2: "mi",
+      unit3: "minPerMi"),
+  metric(
+      l10nKey: "distanceUnit:metric",
+      unit1: "m",
+      unit2: "km",
+      unit3: "minPerKm"),
   unknown(l10nKey: "distanceUnit:unknown", unit1: "", unit2: "", unit3: "");
 
   const DistanceUnit({

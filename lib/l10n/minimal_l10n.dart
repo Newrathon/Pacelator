@@ -18,6 +18,8 @@ class MinimalLocalizations {
     'en': {
       'title': 'Pace Calculator',
       'Light Mode': 'Light Mode',
+      'Results': 'Results',
+      'hhMMSS': 'HH:MM:SS',
       'Hour Label': 'Hours',
       'Minute Label': 'Minutes',
       'Calculate': 'Calculate',
@@ -27,6 +29,8 @@ class MinimalLocalizations {
       'Pace': 'Pace',
       'Race Type': 'Race Type',
       'distance': 'Distance',
+      'minPerKm': 'min/km',
+      'minPerMi': 'min/mi',
       'raceType:customized': 'Customized Distance',
       'raceType:50m': '50m',
       'raceType:100m': '100m',
@@ -50,9 +54,13 @@ class MinimalLocalizations {
     'zh': {
       'title': '配速计算器',
       'unit': '单位',
+      'Results': '计算结果',
       'Calculate': '计算',
       'Hour Label': '小时',
+      'hhMMSS': '时:分:秒',
       'Minute Label': '分钟',
+      'minPerKm': '分钟/公里',
+      'minPerMi': '分钟/英里',
       'Race Type': '比赛类型',
       'Light Mode': '浅色模式',
       'Dark Mode': '深色模式',
@@ -127,8 +135,16 @@ class MinimalLocalizations {
     return _localizedValues[locale.languageCode]!['Calculate']!;
   }
 
+  String get results {
+    return _localizedValues[locale.languageCode]!['Results']!;
+  }
+
   String get pace {
     return _localizedValues[locale.languageCode]!['Pace']!;
+  }
+
+  String get hhMMSS {
+    return _localizedValues[locale.languageCode]!['hhMMSS']!;
   }
 
   String getL10nByKey(String key) {

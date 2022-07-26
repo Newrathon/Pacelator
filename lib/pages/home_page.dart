@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                                         .estimateFinishTime),
                                 Tab(
                                     text:
-                                        MinimalLocalizations.of(context).pace),
+                                        '${MinimalLocalizations.of(context).pace}(${MinimalLocalizations.of(context).getL10nByKey(dataController.unit!.unit3)})')
                               ],
                             ),
                           ),
@@ -147,7 +147,8 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   child: createInlinePicker(
                                     elevation: 1,
-                                    value: dataController.getTimeOfDay(),
+                                    value: dataController
+                                        .getFinishedHourMinuteTime(),
                                     onChange: (value) =>
                                         dataController.setFinishedTime(value),
                                     minuteInterval: MinuteInterval.ONE,
@@ -171,12 +172,14 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   child: createInlinePicker(
                                     elevation: 1,
-                                    value: dataController.getPace(),
+                                    value: dataController
+                                        .getPaceMinuteSecondTime(),
                                     onChange: (value) =>
                                         dataController.setPace(value),
                                     minuteInterval: MinuteInterval.ONE,
                                     iosStylePicker: true,
                                     minHour: 0,
+                                    blurredBackground: true,
                                     displayHeader: false,
                                     isOnChangeValueMode: true,
                                     accentColor: Color(0xff6750a4),
@@ -201,34 +204,29 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        tooltip: MinimalLocalizations.of(context).calculate +
-            dataController.getTabMode().toString(),
+        tooltip: MinimalLocalizations.of(context).calculate,
         heroTag: 'fab',
         icon: Icon(Icons.calculate),
         label: Text(MinimalLocalizations.of(context).calculate),
         onPressed: () {
           Calculator calculator = Calculator(
-            gender: dataController.gender!,
-            height: dataController.height!,
+            unit: dataController.unit!,
+            raceType: dataController.raceType!,
             distance: dataController.distance!,
-            age: dataController.age!,
-            activityLevel: dataController.activityLevel!,
-            goal: dataController.goal!,
             tabMode: dataController.getTabMode(),
+            pace: dataController.getPaceMinuteSecondTime(),
+            etf: dataController.getFinishedHourMinuteTime(),
           );
 
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => ResultPage(
-                totalCalories: calculator.totalCalories(),
-                carbs: calculator.carb(),
-                protein: calculator.protein(),
-                fats: calculator.fat(),
-                bmi: calculator.bmi(),
-                tdee: calculator.tdee(),
-                bmiScale: calculator.bmiScale(),
-              ),
+                  unit: calculator.unit,
+                  raceType: calculator.raceType,
+                  estimateTimeFinished: calculator.estimatedTimeFinished(),
+                  averagePace: calculator.averagePace(),
+                  splits: calculator.splits()),
             ),
           );
         },
