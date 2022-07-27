@@ -23,3 +23,9 @@ Pace calcualtor is a simple app that calculates the pace for a running race.
 ## Credit
 
 This app is developed based on [Macro Calculator](https://github.com/varadgauthankar/macro_calculator.git). Thanks~
+
+The Privacy Policy Html was generated with (隐私政策生成器)) [https://privacy.1ts.fun/] Thanks ~
+
+
+## Useful docs
+[Localize the App Display Name](https://medium.com/@ykaito21/flutter-from-zero-to-one-how-to-localize-app-display-name-c4deb5aa4c04)

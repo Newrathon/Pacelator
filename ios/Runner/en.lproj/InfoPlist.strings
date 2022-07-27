@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by Kent on 2022/7/27.
+  Copyright © 2022 chuanyi. All rights reserved.
+*/
+
+
+CFBundleDisplayName = “Pacelator”;

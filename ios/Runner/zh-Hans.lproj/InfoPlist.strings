@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by Kent on 2022/7/27.
+  Copyright © 2022 chuanyi. All rights reserved.
+*/
+
+CFBundleDisplayName = “牛拉松配速计算器”;
