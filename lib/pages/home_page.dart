@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                   distance: dataController.distanceFormatted(),
                   unit: calculator.unit,
                   raceType: calculator.raceType,
-                  estimateTimeFinished: calculator.estimatedTimeFinished(),
+                  estimateTimeFinished: calculator.estimatedTimeFinished(true),
                   averagePace: calculator.averagePace(),
                   splits: calculator.splits()),
             ),

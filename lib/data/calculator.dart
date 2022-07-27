@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:macro_calculator/pages/results_page.dart';
 import 'package:macro_calculator/utils/enums.dart';
@@ -22,9 +20,13 @@ class Calculator {
     required this.unit,
   });
 
-  String estimatedTimeFinished() {
+  String estimatedTimeFinished(bool needLeadingZero) {
     Map<String, int> etfMap = getEtfTimeMap();
-    return "${formatNumLeftPadding0(etfMap['hour']!)}:${formatNumLeftPadding0(etfMap['minute']!)}:${formatNumLeftPadding0(etfMap['second']!)}";
+    if (needLeadingZero) {
+      return "${formatNumLeftPadding0(etfMap['hour']!)}:${formatNumLeftPadding0(etfMap['minute']!)}:${formatNumLeftPadding0(etfMap['second']!)}";
+    } else {
+      return "${etfMap['hour'] == 0 ? '' : formatNumLeftPadding0(etfMap['hour']!) + ':'}${formatNumLeftPadding0(etfMap['minute']!)}:${formatNumLeftPadding0(etfMap['second']!)}";
+    }
   }
 
   Map<String, int> getEtfTimeMap() {
@@ -116,8 +118,9 @@ class Calculator {
           splitDistance:
               '${left != 0 && i == splitNum - 1 ? left.toStringAsFixed(1) : 1.0}',
           splitPace: avgPace,
-          splitTime:
-              i == splitNum - 1 ? estimatedTimeFinished() : cumulativeTime);
+          splitTime: i == splitNum - 1
+              ? estimatedTimeFinished(false)
+              : cumulativeTime);
       splits.add(runSplit);
     }
     return splits;
