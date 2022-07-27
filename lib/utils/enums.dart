@@ -1,22 +1,3 @@
-enum Gender {
-  male,
-  female,
-}
-
-enum ActivityLevel {
-  sedentary,
-  lightly,
-  moderately,
-  very,
-  extremely,
-}
-
-enum Goal {
-  loose,
-  maintain,
-  gain,
-}
-
 enum DistanceUnit {
   statute(
       l10nKey: "distanceUnit:statute",
