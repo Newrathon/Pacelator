@@ -7,11 +7,9 @@ import 'package:macro_calculator/utils/enums.dart';
 import 'package:macro_calculator/utils/helpers.dart';
 import 'package:macro_calculator/utils/textStyles.dart';
 import 'package:macro_calculator/data/calculator.dart';
-import 'package:macro_calculator/widgets/my_button.dart';
 import 'package:macro_calculator/widgets/my_drop_down_menu.dart';
 import 'package:macro_calculator/widgets/slider.dart';
 import 'package:macro_calculator/widgets/tile.dart';
-import 'package:numberpicker/numberpicker.dart';
 import 'package:provider/provider.dart';
 import 'package:macro_calculator/l10n/minimal_l10n.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
@@ -116,7 +114,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 DefaultTabController(
                     length: 2,
-                    initialIndex: 0,
+                    initialIndex: dataController.getTabIntialIndex(),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[

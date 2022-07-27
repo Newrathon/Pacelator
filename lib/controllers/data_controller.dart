@@ -69,6 +69,10 @@ class DataController extends ChangeNotifier {
     return this.tabMode!;
   }
 
+  int getTabIntialIndex() {
+    return this.tabMode!.index;
+  }
+
   void setActivityLevel(ActivityLevel? activityLevel) {
     this.activityLevel = activityLevel;
     box.put('activityLevel', activityLevel?.index);

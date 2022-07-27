@@ -1,5 +1,4 @@
-import 'dart:ffi';
-import 'dart:math';
+
 
 import 'package:flutter/material.dart';
 import 'package:macro_calculator/pages/results_page.dart';
