@@ -58,7 +58,7 @@ class MinimalLocalizations {
       'shareMessage': 'Newrathon Pace Calculator. Download It Now!',
     },
     'zh': {
-      'title': '配速计算器',
+      'title': 'Pacelator 配速计算器',
       'unit': '单位',
       'splits': '计圈',
       'lapNo': '圈数',
@@ -75,7 +75,7 @@ class MinimalLocalizations {
       'Light Mode': '浅色模式',
       'Dark Mode': '深色模式',
       'distance': '距离',
-      'newrathon': '牛拉松配速计算器',
+      'newrathon': 'Pacelator',
       'Estimated Finish Time': '预计完赛时间',
       'raceType:customized': '自定义距离',
       'raceType:50m': '50 米',
@@ -97,7 +97,7 @@ class MinimalLocalizations {
       'distanceUnit:unknown': '未知',
       'Pace': '配速',
       'Seconds Label': '秒',
-      'shareMessage': '牛拉松配速计算器，即刻下载',
+      'shareMessage': 'Pacelator，即刻下载',
     },
   };
 
