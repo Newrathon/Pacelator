@@ -1,37 +1,31 @@
-## Welcome to GitHub Pages
+# Pacelator
 
-You can use the [editor on GitHub](https://github.com/Likenttt/pace_calculator/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Pacelator(Pace Calcualtor) is a simple app that calculates the pace for a running race.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<!-- [<img height="75" width="200" src="./screenshots/google-play-badge.png" alt="Play Store"/>](https://play.google.com/store/apps/details?id=com.newrathon.pace_calculator) -->
 
-### Markdown
+## Screenshots
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<p>
+<img height="343px" width="160px" src="screenshots/home_light.jpg" alt="paceCalculator"/>
+<img height="343px" width="160px" src="screenshots/result_light.jpg" alt="paceCalculator"/>
+<img height="343px" width="160px" src="screenshots/home_dark.jpg" alt="paceCalculator"/>
+<img height="343px" width="160px" src="screenshots/result_dark.jpg" alt="paceCalculator"/> </p>
 
-```markdown
-Syntax highlighted code block
+## Build
 
-# Header 1
-## Header 2
-### Header 3
+[Build and release an Android app](https://docs.flutter.dev/deployment/android)
 
-- Bulleted
-- List
+## License
 
-1. Numbered
-2. List
+[MIT](https://choosealicense.com/licenses/mit/)
 
-**Bold** and _Italic_ and `Code` text
+## Credit
 
-[Link](url) and ![Image](src)
-```
+This app is developed based on [Macro Calculator](https://github.com/varadgauthankar/macro_calculator.git). Thanks~
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+The Privacy Policy Html was generated with [隐私政策生成器)](https://privacy.1ts.fun/) Thanks ~
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Likenttt/pace_calculator/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Useful docs
+[Localize the App Display Name](https://medium.com/@ykaito21/flutter-from-zero-to-one-how-to-localize-app-display-name-c4deb5aa4c04)
