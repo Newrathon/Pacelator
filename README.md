@@ -24,7 +24,7 @@ Pacelator(Pace Calcualtor) is a simple app that calculates the pace for a runnin
 
 This app is developed based on [Macro Calculator](https://github.com/varadgauthankar/macro_calculator.git). Thanks~
 
-The Privacy Policy Html was generated with (隐私政策生成器)) [https://privacy.1ts.fun/] Thanks ~
+The Privacy Policy Html was generated with [隐私政策生成器)](https://privacy.1ts.fun/) Thanks ~
 
 
 ## Useful docs
