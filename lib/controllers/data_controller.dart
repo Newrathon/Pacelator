@@ -39,7 +39,7 @@ class DataController extends ChangeNotifier {
     return this.tabMode!;
   }
 
-  int getTabIntialIndex() {
+  int getTabInitialIndex() {
     return this.tabMode!.index;
   }
 

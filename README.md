@@ -2,6 +2,11 @@
 
 Pacelator(Pace Calcualtor) is a simple app that calculates the pace for a running race.
 
+## About Its Name
+Pacelator = Pace  + Calculator
+
+Pronunciation：/peɪsletɚ/ = /peɪs/ + /ˈkælkjəˌletɚ/
+
 <!-- [<img height="75" width="200" src="./screenshots/google-play-badge.png" alt="Play Store"/>](https://play.google.com/store/apps/details?id=com.newrathon.pace_calculator) -->
 
 ## Screenshots

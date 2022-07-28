@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 DefaultTabController(
                     length: 2,
-                    initialIndex: dataController.getTabIntialIndex(),
+                    initialIndex: dataController.getTabInitialIndex(),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
