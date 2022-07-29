@@ -3,7 +3,8 @@
 Pacelator(Pace Calcualtor) is a simple app that calculates the pace for a running race.
 
 ## About Its Name
-Pacelator = Pace  + Calculator
+
+Pacelator = Pace + Calculator
 
 Pronunciation：/peɪsletɚ/ = /peɪs/ + /ˈkælkjəˌletɚ/
 
@@ -31,6 +32,8 @@ This app is developed based on [Macro Calculator](https://github.com/varadgautha
 
 The Privacy Policy Html was generated with [隐私政策生成器)](https://privacy.1ts.fun/) Thanks ~
 
+Appicon resizing for different devices with multi-resolutions [Appicon.co](https://appicon.co/)
 
 ## Useful docs
+
 [Localize the App Display Name](https://medium.com/@ykaito21/flutter-from-zero-to-one-how-to-localize-app-display-name-c4deb5aa4c04)
