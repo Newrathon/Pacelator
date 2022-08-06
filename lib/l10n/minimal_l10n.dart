@@ -21,7 +21,7 @@ class MinimalLocalizations {
       'Results': 'Results',
       'hhMMSS': 'HH:MM:SS',
       'lapNo': 'Lap No.',
-      'newrathon': 'Newrathon Pace Calculator',
+      'newrathon': 'Pacelator',
       'lapDistance': 'Lap Distance',
       'lapTime': 'Cumulative Time',
       'splits': 'Laps',
@@ -55,7 +55,7 @@ class MinimalLocalizations {
       'distanceUnit:statute': 'Statute',
       'distanceUnit:unknown': 'Unknown',
       "Seconds Label": "Seconds",
-      'shareMessage': 'Newrathon Pace Calculator. Download It Now!',
+      'shareMessage': 'Pacelator by Newrathon. Download It Now!',
     },
     'zh': {
       'title': 'Pacelator 配速计算器',
