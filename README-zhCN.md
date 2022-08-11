@@ -1,24 +1,20 @@
----
-permalink: README.html
----
+## 名称来源
 
-## About Its Name
-
-Pacelator(Pace Calcualtor) is a simple app that calculates the pace for a running race.
+Pacelator(Pace Calcualtor) 是一个专注于跑步配速计算的应用。
 
 Pacelator = Pace + Calculator
 
-Pronunciation：/peɪsletɚ/ = /peɪs/ + /ˈkælkjəˌletɚ/
+发音: /peɪsletɚ/ = /peɪs/ + /ˈkælkjəˌletɚ/
 
-## Features
+## 特色
 
-- Free. Free of charge, freee of ads and freee of irrelavant disturbance.
-- KISS(Keep It Simple,Stupid). Only two screens with a dark and light theme. Only calculate pace for your race. Nothing else, No disturbance
-- Different units supported. Your are able to choose Metric or Statute as you like.
-- 2 descriptions for time: Estimated Finish Time & Target Pace.
-- A clean result for a calculation. Your are able to see the estimated finish time,pace and splits for the race you specified.
-- Share as a picture.
-- Open sorce. https://github.com/Likenttt/pacelator
+- 三免。免费、免广告、免打扰。
+- 保持简单. 仅有两屏+浅色深色主题。
+- 支持公制和英制。
+- 两种时间描述。预计完成时间和目标配速。
+- 简洁清晰的计算结果。
+- 结果可分享为图片。
+- 开源。https://github.com/Likenttt/pacelator
 
 <!-- [<img height="75" width="200" src="./screenshots/google-play-badge.png" alt="Play Store"/>](https://play.google.com/store/apps/details?id=com.newrathon.pace_calculator) -->
 
