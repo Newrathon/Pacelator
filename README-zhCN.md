@@ -1,3 +1,5 @@
+[English](./README-zhCN.md)
+
 ## 名称来源
 
 Pacelator(Pace Calcualtor) 是一个专注于跑步配速计算的应用。
@@ -18,7 +20,7 @@ Pacelator = Pace + Calculator
 
 <!-- [<img height="75" width="200" src="./screenshots/google-play-badge.png" alt="Play Store"/>](https://play.google.com/store/apps/details?id=com.newrathon.pace_calculator) -->
 
-## Screenshots
+## 截图
 
 <p>
 <img height="343px" width="160px" src="screenshots/home_light.jpg" alt="paceCalculator"/>
@@ -26,7 +28,7 @@ Pacelator = Pace + Calculator
 <img height="343px" width="160px" src="screenshots/home_dark.jpg" alt="paceCalculator"/>
 <img height="343px" width="160px" src="screenshots/result_dark.jpg" alt="paceCalculator"/> </p>
 
-## Build
+## 构建方法
 
 [Build and release an Android app](https://docs.flutter.dev/deployment/android)
 
@@ -36,12 +38,12 @@ Pacelator = Pace + Calculator
 
 ## Credit
 
-This app is developed based on [Macro Calculator](https://github.com/varadgauthankar/macro_calculator.git). Thanks~
+本应用基于 [Macro Calculator](https://github.com/varadgauthankar/macro_calculator.git)开发. 致敬 🫡 ~
 
-The Privacy Policy Html was generated with [隐私政策生成器)](https://privacy.1ts.fun/) Thanks ~
+隐私政策使用 [隐私政策生成器)](https://privacy.1ts.fun/) 生成，感谢 ~
 
-Appicon resizing for different devices with multi-resolutions [Appicon.co](https://appicon.co/)
+多分辨率的应用图标使用 Appicon 生成 [Appicon.co](https://appicon.co/)
 
-## Useful docs
+## 一些有用的参考文档
 
-[Localize the App Display Name](https://medium.com/@ykaito21/flutter-from-zero-to-one-how-to-localize-app-display-name-c4deb5aa4c04)
+[应用名称本地化](https://medium.com/@ykaito21/flutter-from-zero-to-one-how-to-localize-app-display-name-c4deb5aa4c04)

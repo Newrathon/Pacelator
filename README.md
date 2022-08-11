@@ -2,6 +2,8 @@
 permalink: README.html
 ---
 
+[简体中文](./README-zhCN.md)
+
 ## About Its Name
 
 Pacelator(Pace Calcualtor) is a simple app that calculates the pace for a running race.
